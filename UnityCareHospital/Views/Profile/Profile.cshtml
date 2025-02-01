@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Title = "Profil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="profile">
+    <div class="form-container profile-container">
+        <div class="circle-flex">
+            <div class="circle">
+                @if (ViewBag.ImgID != null)
+                {
+                    <img src="~/Content/Images/@($"{ViewBag.ImgID}")" alt="Profile Picture" style="width: 150px; height: 150px; border-radius: 50%;">
+                }
+                else
+                {
+                }
+            </div>
+            <form action="/Profile/UploadImage" method="post" enctype="multipart/form-data">
+                @Html.AntiForgeryToken()
+                <div style="padding:10px;">
+                    <label for="profileImage"></label>
+                    <input type="file" id="profileImage" name="profileImage" accept="image/*" required>
+
+                </div>
+                <div style="margin-left:15px;">
+                    <button type="submit" class="profile-button">Profil Yükle</button>
+                </div>
+            </form>
+        </div>
+        <div class="form">
+            <label for="isim">İsim</label>
+            <input id="isim" name="isim" type="text" value="@ViewBag.User.FirstName" readonly />
+
+            <label for="soyisim">Soyisim</label>
+            <input id="soyisim" name="soyisim" type="text" value="@ViewBag.User.LastName" readonly />
+
+            <label for="yas">Yaş</label>
+            <input id="yas" name="yas" type="text" value="@ViewBag.User.Age" readonly />
+
+            <label for="telefon">Telefon</label>
+            <input id="telefon" name="telefon" type="text" value="@ViewBag.User.Phone" readonly />
+
+            <label for="mail">Mail</label>
+            <input id="mail" name="mail" type="text" value="@ViewBag.User.Email" readonly />
+        </div>
+    </div>
+    <div class="calender-main-container">
+        <h2>Yaklaşan Randevularım</h2>
+        <div class="calender-sub-container">
+            @if (ViewBag.Appointments != null)
+            {
+                foreach (var appointment in ViewBag.Appointments)
+                {
+                    if (Session["UserRole"].ToString() == "Doctor")
+                    {
+                        <div class="appointment-card">
+                            <p><strong>Tarih:</strong> @appointment.AppointmentDate.ToString("yyyy-MM-dd")</p>
+                            <p><strong>Saat:</strong> @appointment.AppointmentTime</p>
+                            <p><strong>Hasta:</strong> @appointment.PatientName</p>
+                        </div> }
+                    else if (Session["UserRole"].ToString() == "Patient")
+                    {
+                        <div class="appointment-card">
+                            <p><strong>Tarih:</strong> @appointment.AppointmentDate.ToString("yyyy-MM-dd")</p>
+                            <p><strong>Saat:</strong> @appointment.AppointmentTime</p>
+                            <p><strong>Doktor:</strong> @appointment.DoctorName</p>
+                            <p><strong>Uzmanlık:</strong> @appointment.Specialization</p>
+                        </div> }
+                }
+            }
+            else
+            {
+                <p>Henüz bir randevu bilgisi bulunmamaktadır.</p>}
+        </div>
+    </div>
+</div>

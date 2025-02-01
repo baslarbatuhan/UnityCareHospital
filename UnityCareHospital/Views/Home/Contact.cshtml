@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "İletişim";
+    Layout = "~/Views/Shared/_Layout.cshtml"; 
+}
+
+<div class="background-container">
+    <div class="form-container">
+        <div class="contact-form">
+            <h2>İletişim</h2>
+            <form action="~/Contact/Contact" method="post">
+                @Html.AntiForgeryToken() 
+                <label for="name">Adınız</label>
+                <input id="name" name="FullName" type="text" placeholder="Adınız" required>
+
+                <label for="phone">Numaranız</label>
+                <input id="phone" name="Number" type="text" placeholder="Telefon Numaranız" required>
+
+                <label for="email">E-posta</label>
+                <input id="email" name="Email" type="email" placeholder="E-posta Adresiniz" required>
+
+                <label for="message">Mesajınız</label>
+                <textarea id="message" name="Message" placeholder="Mesajınızı yazın" required></textarea>
+
+                <button type="submit" class="submit-btn">Gönder</button>
+                @if (TempData["SuccessMessage"] != null)
+                {
+                    <div class="successfull-message">
+                        @TempData["SuccessMessage"]
+                    </div>}
+
+            </form>
+        </div>
+
+        <div class="address-map-container">
+            <div class="address-bar">
+                <h2>Adres</h2>
+                <p>Unity Care Hospital</p>
+                <p>123 Sağlık Caddesi</p>
+                <p>34567 Şehir, Ülke</p>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2460.299769922264!2d28.830740241903687!3d40.9915825060166!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa35ee1fdc1b1%3A0x658a212e6b4359b5!2zVC5DLiDEsHN0YW5idWwgS8O8bHTDvHIgw5xuaXZlcnNpdGVzaQ!5e0!3m2!1str!2str!4v1730377473268!5m2!1str!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+
+</div>

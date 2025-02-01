@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/Content/login.css">
+    <link rel="stylesheet" href="~/Content/about_us.css">
+    <link rel="stylesheet" href="~/Content/home.css">
+    <link rel="stylesheet" href="~/Content/doctors.css">
+    <link rel="stylesheet" href="~/Content/contact.css">
+    <link rel="stylesheet" href="~/Content/appointment.css">
+    <link rel="stylesheet" href="~/Content/signup.css">
+    <link rel="stylesheet" href="~/Content/Profile.css">
+
+
+    <script src="~/Scripts/main_site.js"></script>
+    <script src="~/Scripts/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.min.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.min.js"></script>
+
+
+</head>
+<body>
+   
+    <div>
+        <div class="top-bar">
+            <div class="logo">
+                <img class="logo-img" src="~/Content/images/logoWo_yazi.png" alt="Logo" />
+                <h1>
+                    <img class="logo-text" src="~/Content/images/logo_yazi.png" alt="Text Logo">
+                </h1>
+            </div>
+
+            @if (Session["UserID"] != null)
+            {
+        <div class="menu">
+            <div>
+                @if (Session["FirstName"] != null && Session["LastName"] != null)
+                {
+                    if (Session["UserRoleID"]?.ToString() == "1")
+                    {
+        <p style="color:white; font-family:Rockwell; padding:10px;">
+            Hoş geldiniz, Dr. @Session["FirstName"] @Session["LastName"]
+        </p> }
+                            else
+                            {
+        <p style="color:white; font-family:Rockwell; padding:10px;"> 
+            Hoş geldiniz, @Session["FirstName"] @Session["LastName"]
+        </p> }
+                        }
+                        else
+                        {
+        <span style="color:white; font-family:Rockwell; padding:10px;">
+            Hoş geldiniz, Misafir!
+        </span>}
+            <div class="profile-btn-section">
+
+                <button class="btn" >
+                    <a href="~/Profile/Profile">Profilim</a>
+                </button>
+
+                @using (Html.BeginForm("Logout", "Account", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <button class="btn">
+                        <a class="">Çıkış Yap</a>
+                    </button>}
+            </div>
+        </div>
+        </div> }
+                    else
+                    {
+                        <div class="menu">
+                            <a class="login-btn" href="~/Account/Login">Giriş Yap</a>
+                            <a class="signup-btn" href="~/Account/Signup">Kayıt Ol</a>
+                        </div>
+                    }
+
+
+        </div>
+
+        <div class="sub-bar">
+            <div class="menu">
+                <a href="~/Home/Main">Ana Sayfa</a>
+                <a href="~/Home/Doctors">Doktorlarımız</a>
+                <a href="~/Home/About">Hakkımızda</a>
+                <a href="~/Home/Contact">İletişim</a>
+            </div>
+        </div>
+        @RenderBody()
+        @RenderSection("Scripts", required: false)
+    </div>
+</body>
+</html>

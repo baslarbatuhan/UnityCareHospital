@@ -1,0 +1,56 @@
+﻿@{
+
+    ViewBag.Title = "Unity Care Hospital - Randevu Al";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <div class="appointment-box">
+        @using (Html.BeginForm("ReservationAppointment", "Appointment", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <h2>Randevu Al</h2>
+            <form method="post" action="~/Appointment/Appointment">
+
+                <select id="doctor" name="DoctorId">
+                    <option value="">Doktor Seçiniz</option>
+                    @foreach (var doctor in Model)
+                    {
+                        <option value="@doctor.DoctorID">@doctor.FullName (@doctor.Specialization)</option>
+                    }
+                </select>
+
+                <input id="datetimepicker" name="datetime" type="text" placeholder="Tarih ve Saat Seçiniz" readonly />
+
+                <button type="submit" class="submit-btn">Randevu Al</button>
+
+                @if (TempData["AppointmentErrorMessage"] != null)
+                {
+            <div class="error-message">
+                @TempData["AppointmentErrorMessage"]
+            </div>}
+            </form>
+        }
+    </div>
+</div>
+
+@section Scripts {
+
+
+
+    <script>
+        $(function () {
+            $("#datetimepicker").datetimepicker({
+                dateFormat: "dd-mm-yy", 
+                timeFormat: "HH:mm",    
+                showSecond: false,       
+                controlType: 'select',   
+                minDate: 0,             
+                minTime: "09:00",        
+                maxTime: "17:00",        
+                stepMinute: 30           
+            });
+        });
+    </script>
+}

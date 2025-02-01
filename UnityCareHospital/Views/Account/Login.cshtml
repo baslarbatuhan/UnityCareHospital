@@ -1,0 +1,36 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Unity Care Hospital - Giriş Yap";
+}
+
+<div class="login-page">
+    
+
+    <div class="containery">
+        <div class="form-containery">
+            @if (TempData["AppointmentErrorMessage"] != null)
+            {
+        <div style="padding-bottom:40px;" class="error-message">
+            @TempData["AppointmentErrorMessage"]
+        </div>}
+            <h2>Üye Girişi</h2>
+            <form method="post" action="/Account/Login">
+                @Html.AntiForgeryToken() 
+                <label for="email">E-Posta</label>
+                <input id="email" name="email" type="text" placeholder="E-Posta" />
+
+                <label for="password">Şifre</label>
+                <input id="password" name="password" type="password" placeholder="Şifreniz" />
+
+                <button type="submit" class="submit-btn">Giriş Yap</button>
+            </form>
+            @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage as string))
+            {
+                <div class="error-message">
+                    @ViewBag.ErrorMessage
+                </div>
+            }
+
+        </div>
+    </div>
+</div>

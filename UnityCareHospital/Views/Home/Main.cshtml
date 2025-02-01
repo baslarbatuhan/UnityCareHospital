@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "Ana Sayfa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="hero">
+    
+
+    <img src="~/Content/Images/main-bg.jpg" alt="Background Image">
+    <div class="carousel-container">
+        <div class="carousel-controls">
+            <button class="prev" onclick="prevSlide()">
+                <i class="slide-left"></i>
+            </button>
+            <button class="next" onclick="nextSlide()">
+                <i class="slide-right"></i>
+            </button>
+        </div>
+        <div class="carousel" id="carousel">
+            <div class="carousel-item">
+                <img src="~/Content/Images/carousel/sick_man.jpg" />
+            </div>
+            <div class="carousel-item">
+                <img src="~/Content/Images/carousel/muscle-pain.jpg" />
+            </div>
+            <div class="carousel-item">
+                <img src="~/Content/Images/carousel/Stomach-ache.jpg" />
+            </div>
+            <div class="carousel-item">
+                <img src="~/Content/Images/carousel/corona_virüs.png" />
+            </div>
+            <div class="carousel-item">
+                <img src="~/Content/Images/carousel/head-ache.jpg" />
+            </div>
+            <div class="carousel-item">
+                <img src="~/Content/Images/carousel/diabeties.jpg" />
+            </div>
+            <div class="carousel-item">
+                <img src="~/Content/Images/carousel/surgery.jpg" />
+            </div>
+            <div class="carousel-item">
+                <img src="~/Content/Images/carousel/baby.jpg" />
+            </div>
+        </div>
+    </div>
+    @if (Session["UserRoleID"]?.ToString() == "1")
+    {
+        <a style="display:none;" class="appointment-btn" href="/Appointment/Appointment">Randevu Al</a>
+        <a class="doctors-button-doctor" href="/Home/Doctors">Doktorlarımız</a>
+        <a class="about_us-btn" href="/Home/About">Hakkımızda</a>
+        <a class="contact_us-btn" href="/Home/Contact">İletişim</a>
+    }
+    else
+    {
+        <a class="appointment-btn" href="/Appointment/Appointment">Randevu Al</a>
+        <a class="doctors-btn" href="/Home/Doctors">Doktorlarımız</a>
+        <a class="about_us-btn" href="/Home/About">Hakkımızda</a>
+        <a class="contact_us-btn" href="/Home/Contact">İletişim</a>
+    }
+
+</div>
+
+<script src="~/script/main_site.js"></script>

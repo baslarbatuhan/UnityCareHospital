@@ -1,0 +1,173 @@
+
+
+.top-bar {
+    background-color: #0a3a52;
+    padding: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    .top-bar .logo {
+        display: flex;
+        align-items: center;
+        margin-left: 20px;
+        margin-bottom: 10px;
+    }
+
+.top-bar .logo .logo-img {
+            height: 90px;
+            width: auto;
+            margin-right: 10px;
+        }
+
+.top-bar .logo .logo-text {
+            height: 50px;
+            width: auto;
+            margin-bottom: 5px;
+            margin-top: 20px;
+        }
+
+.top-bar .logo h1 {
+            color: white;
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+.top-bar .menu {
+        display: flex;
+        align-items: center;
+        margin-right: 20px;
+    }
+
+.top-bar .menu .login-btn,
+.top-bar .menu .signup-btn {
+            background-color: white;
+            color: #0a3a52;
+            padding: 5px 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+.top-bar .menu .login-btn:hover,
+.top-bar .menu .signup-btn:hover {
+                background-color: #0a4968;
+                color: white;
+            }
+
+.sub-bar {
+    background-color: white;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px solid #0a3a52;
+}
+
+.sub-bar .menu {
+        display: flex;
+        align-items: center;
+    }
+
+.sub-bar .menu a {
+            color: #0a3a52;
+            text-decoration: none;
+            margin: 0 30px;
+            font-size: 1rem;
+        }
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.background-container {
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("Images/hospital-hallway.jpg"); /* Görsel ve soluklaþtýrýcý katman */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Sabit arka plan */
+    background-size: cover;
+    height: 1000px;
+}
+
+.form-container {
+    display: flex;
+    gap: 20px;
+    padding-top: 30px;
+}
+
+.contact-form, .address-map-container {
+    background-color: white;
+    margin-left: 180px;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 450px;
+}
+
+    .contact-form h2, .address-bar h2 {
+        margin-top: 0;
+        
+        font-size: 24px;
+        color: #0a4d5e;
+    }
+
+    .contact-form input {
+        width: 95%;
+        padding: 10px;
+        margin: 12px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .contact-form textarea {
+        width: 95%;
+        height: 80px;
+        padding: 10px;
+        margin: 12px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        resize: none;
+    }
+
+    .contact-form button {
+        background-color: #0a4d5e;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+    }
+
+.address-bar {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+    .address-bar p {
+        margin: 10px 0;
+        font-size: 16px;
+        color: #333;
+    }
+
+.map-container {
+    width: 99%;
+    height: 250px;
+    border: 2px solid #0a4d5e;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
+.successfull-message {
+    color: green;
+    padding: 20px;
+    font-weight: bold;
+}
