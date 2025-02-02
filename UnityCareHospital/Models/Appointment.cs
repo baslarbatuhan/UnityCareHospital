@@ -15,11 +15,11 @@ namespace UnityCareHospital.Models
         public int PatientID { get; set; }
 
         [Required(ErrorMessage = "Randevu tarihi zorunludur.")]
-        [DataType(DataType.Date)] // Tarih formatý
+        [DataType(DataType.Date)] // Tarih formatï¿½
         public DateTime AppointmentDate { get; set; }
 
         [Required(ErrorMessage = "Randevu saati zorunludur.")]
-        [DataType(DataType.Time)] // Saat formatý
+        [DataType(DataType.Time)] // Saat formatï¿½
         public TimeSpan AppointmentTime { get; set; }
 
 

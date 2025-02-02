@@ -12,12 +12,12 @@ namespace UnityCareHospital.Models
         [Key] 
         public int DoctorID { get; set; }
 
-       [Required(ErrorMessage = "Kullanýcý ID'si zorunludur.")]
+       [Required(ErrorMessage = "Kullanï¿½cï¿½ ID'si zorunludur.")]
         
        
         public int UserID { get; set; }
 
-        [Required(ErrorMessage = "Uzmanlýk alaný zorunludur.")]
+        [Required(ErrorMessage = "Uzmanlï¿½k alanï¿½ zorunludur.")]
         public string Specialization { get; set; }
 
         

@@ -13,22 +13,22 @@ namespace UnityCareHospital.Models
         public int UserID { get; set; }
 
         [Required(ErrorMessage = "E-posta adresi zorunludur.")] 
-        [EmailAddress(ErrorMessage = "Geçerli bir e-posta adresi giriniz.")] 
+        [EmailAddress(ErrorMessage = "Geï¿½erli bir e-posta adresi giriniz.")] 
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Þifre zorunludur.")] 
-        [StringLength(50, MinimumLength = 6, ErrorMessage = "Þifre en az 6 karakter olmalýdýr.")] 
+        [Required(ErrorMessage = "ï¿½ifre zorunludur.")] 
+        [StringLength(50, MinimumLength = 6, ErrorMessage = "ï¿½ifre en az 6 karakter olmalï¿½dï¿½r.")] 
         public string Password { get; set; }
 
         [Required(ErrorMessage = "Ad zorunludur.")] 
-        [StringLength(50, ErrorMessage = "Ad en fazla 50 karakter olmalýdýr.")] 
+        [StringLength(50, ErrorMessage = "Ad en fazla 50 karakter olmalï¿½dï¿½r.")] 
         public string FirstName { get; set; }
 
         [Required(ErrorMessage = "Soyad zorunludur.")] 
-        [StringLength(50, ErrorMessage = "Soyad en fazla 50 karakter olmalýdýr.")] 
+        [StringLength(50, ErrorMessage = "Soyad en fazla 50 karakter olmalï¿½dï¿½r.")] 
         public string LastName { get; set; }
 
-        [Range(0, 120, ErrorMessage = "Yaþ 0 ile 120 arasýnda olmalýdýr.")] 
+        [Range(0, 120, ErrorMessage = "Yaï¿½ 0 ile 120 arasï¿½nda olmalï¿½dï¿½r.")] 
         public string Age { get; set; }
 
         
